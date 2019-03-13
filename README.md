@@ -87,11 +87,6 @@ if (!isset($_GET['code'])) {
 For refresh token pass `access_type=offline`.
 
 
-## Contributing
-
-Please see [CONTRIBUTING](https://github.com/thephpleague/oauth2-untappd/blob/master/CONTRIBUTING.md) for details.
-
-
 ## Credits
 
 - [Yehuda Hassine](https://postmansmtp.com)
