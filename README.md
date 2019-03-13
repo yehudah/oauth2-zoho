@@ -14,8 +14,9 @@ The following versions of PHP are supported.
 ### Authorization Code Flow
 
 ```php
+require_once 'vendor/autoload.php';
 
-$provider = new Zoho([
+$provider = Postsmtp\OAuth2\Client\Provider\Zoho([
     'clientId'                => $client_id,    // The client ID assigned to you by the provider
     'clientSecret'            => $client_secret,   // The client password assigned to you by the provider
     'redirectUri'             => 'http://domain.com',
