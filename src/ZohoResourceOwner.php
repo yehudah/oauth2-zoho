@@ -21,7 +21,7 @@ class ZohoResourceOwner implements ResourceOwnerInterface
 
     public function getId()
     {
-        return $this->response['zuid'];
+        return $this->response['ZUID'];
     }
 
     /**
@@ -31,7 +31,7 @@ class ZohoResourceOwner implements ResourceOwnerInterface
      */
     public function getName()
     {
-        return $this->response['displayName'];
+        return $this->response['Display_Name'];
     }
 
     /**
@@ -41,7 +41,7 @@ class ZohoResourceOwner implements ResourceOwnerInterface
      */
     public function getFirstName()
     {
-        return $this->response['firstName'];
+        return $this->response['First_Name'];
     }
 
     /**
@@ -51,7 +51,7 @@ class ZohoResourceOwner implements ResourceOwnerInterface
      */
     public function getLastName()
     {
-        return $this->response['lastName'];
+        return $this->response['Last_Name'];
     }
 
     /**
@@ -61,7 +61,7 @@ class ZohoResourceOwner implements ResourceOwnerInterface
      */
     public function getEmail()
     {
-        return $this->response['primaryEmailAddress'];
+        return $this->response['Email'];
     }
 
     /**

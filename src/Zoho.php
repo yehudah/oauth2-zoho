@@ -47,7 +47,7 @@ class Zoho extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        return 'https://mail.zoho.com/api/accounts';
+        return 'https://accounts.zoho.com/oauth/user/info';
     }
 
     /**
@@ -55,24 +55,24 @@ class Zoho extends AbstractProvider
      */
     protected function getDefaultScopes()
     {
-        return [];
+        return ['aaaserver.profile.READ', 'ZohoProfile.userinfo.read', 'ZohoProfile.userphoto.read'];
     }
 
     /**
      * Checks a provider response for errors.
      *
      * @param ResponseInterface $response
-     * @param array|string      $data Parsed response data
+     * @param array|string $data Parsed response data
      *
      * @return \League\OAuth2\Client\Provider\Exception\IdentityProviderException
      * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
      */
     protected function checkResponse(ResponseInterface $response, $data)
     {
-        if ( $response->getStatusCode() !== 200 || isset( $data['data']['errorCode'] ) ) {
+        if ($response->getStatusCode() !== 200 || isset($data['data']['errorCode'])) {
 
             throw new IdentityProviderException(
-                sprintf( 'There was an error on response: %s', $data['data']['errorCode'] ),
+                sprintf('There was an error on response: %s', $data['data']['errorCode']),
                 $response->getStatusCode(),
                 $data['data']['status']['description']
             );
@@ -81,13 +81,13 @@ class Zoho extends AbstractProvider
 
     protected function getAuthorizationHeaders($token = null)
     {
-        return [ "Authorization" => "Zoho-oauthtoken {$token->getToken()}" ];
+        return ["Authorization" => "Zoho-oauthtoken {$token->getToken()}"];
     }
 
     /**
      * Create new resources owner using the generated access token.
      *
-     * @param array       $response
+     * @param array $response
      * @param AccessToken $token
      *
      * @return ZohoResourceOwner
